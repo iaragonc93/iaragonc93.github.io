@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mareli Graphics - Servicios de Impresión y Diseño</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        /* Header y Navegación */
+        header {
+            background: #000;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ddd;
+        }
+
+        /* Hero Section */
+        #inicio {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: #fff;
+            padding: 150px 2rem 100px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: #fff;
+            color: #000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+
+        /* Sección Servicios */
+        #servicios {
+            padding: 80px 2rem;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #000;
+        }
+
+        .services-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .services-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .service-card {
+            min-width: 350px;
+            margin: 0 1rem;
+            padding: 2rem;
+            background: #000;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #fff;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .services-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Productos */
+        #productos {
+            padding: 80px 2rem;
+            background: #f9f9f9;
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #000;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Contacto */
+        #contacto {
+            padding: 80px 2rem;
+            background: #fff;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            border: 2px solid #000;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #000;
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #333;
+        }
+
+        /* Tienda */
+        #tienda {
+            padding: 80px 2rem;
+            background: #fff;
+        }
+
+        .store-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .store-item {
+            background: #f9f9f9;
+            border: 2px solid #000;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .store-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .store-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .store-item-info {
+            padding: 1.5rem;
+        }
+
+        .store-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .store-item p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            background: #000;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .social-link i {
+            font-size: 2rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .social-link:hover {
+            color: #ddd;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">MARELI GRAPHICS</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#productos">PRODUCTOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+                <li><a href="#tienda">TIENDA EN LÍNEA</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio">
+        <div class="hero-content">
+            <h1>Bienvenidos a Mareli Graphics</h1>
+            <p>Soluciones profesionales en impresión y diseño gráfico</p>
+            <p>📍 San Nicolás de los Garza</p>
+            <a href="#contacto" class="cta-button">Cotiza Ahora</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-slider">
+            <div class="services-track">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&h=300&fit=crop" alt="Grabado Láser">
+                    <h3>🔥 Grabado y Corte Láser</h3>
+                    <p>Personalizamos y fabricamos piezas con alta precisión en materiales como madera, acrílico, MDF, piel, metal y más.</p>
+                    <ul>
+                        <li>Letreros</li>
+                        <li>Reconocimientos</li>
+                        <li>Regalos corporativos</li>
+                        <li>Piezas decorativas y funcionales</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1611329532992-0f6d4b2ff5e2?w=500&h=300&fit=crop" alt="Gran Formato">
+                    <h3>🖨️ Gran Formato</h3>
+                    <p>Impresión de alta calidad y gran tamaño para publicidad y señalización.</p>
+                    <ul>
+                        <li>Lonas</li>
+                        <li>Viniles</li>
+                        <li>Posters</li>
+                        <li>Backings</li>
+                        <li>Señalética interior y exterior</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&h=300&fit=crop" alt="Sublimado">
+                    <h3>👕 Sublimado</h3>
+                    <p>Impresión que se integra al material, no se despega ni se despinta.</p>
+                    <ul>
+                        <li>Playeras deportivas</li>
+                        <li>Tazas</li>
+                        <li>Termos</li>
+                        <li>Artículos promocionales</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=300&fit=crop" alt="Serigrafía">
+                    <h3>🎨 Serigrafía</h3>
+                    <p>Técnica clásica y resistente para producción en volumen.</p>
+                    <ul>
+                        <li>Playeras</li>
+                        <li>Sudaderas</li>
+                        <li>Uniformes</li>
+                        <li>Colores sólidos y durabilidad</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&h=300&fit=crop" alt="DTF">
+                    <h3>🧵 DTF Textil / DTF UV</h3>
+                    <p><strong>DTF Textil:</strong> Playeras, gorras, sudaderas, cualquier tipo de tela</p>
+                    <p><strong>DTF UV:</strong> Acrílico, vidrio, plástico, madera, promocionales rígidos</p>
+                    <p>Alta calidad, colores vivos y gran resistencia.</p>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop" alt="Impresión Digital">
+                    <h3>🖨️ Impresión Digital</h3>
+                    <p>Impresión rápida y precisa para materiales gráficos.</p>
+                    <ul>
+                        <li>Stickers</li>
+                        <li>Etiquetas</li>
+                        <li>Flyers</li>
+                        <li>Tarjetas</li>
+                        <li>Papelería corporativa</li>
+                    </ul>
+                </div>
+
+                <!-- Duplicado para efecto continuo -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&h=300&fit=crop" alt="Grabado Láser">
+                    <h3>🔥 Grabado y Corte Láser</h3>
+                    <p>Personalizamos y fabricamos piezas con alta precisión en materiales como madera, acrílico, MDF, piel, metal y más.</p>
+                    <ul>
+                        <li>Letreros</li>
+                        <li>Reconocimientos</li>
+                        <li>Regalos corporativos</li>
+                        <li>Piezas decorativas y funcionales</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1611329532992-0f6d4b2ff5e2?w=500&h=300&fit=crop" alt="Gran Formato">
+                    <h3>🖨️ Gran Formato</h3>
+                    <p>Impresión de alta calidad y gran tamaño para publicidad y señalización.</p>
+                    <ul>
+                        <li>Lonas</li>
+                        <li>Viniles</li>
+                        <li>Posters</li>
+                        <li>Backings</li>
+                        <li>Señalética interior y exterior</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+        <h2 class="section-title">Productos Destacados</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&h=300&fit=crop" alt="Playeras">
+                <h3>Playeras Personalizadas</h3>
+                <p>Diseños únicos para tu marca o evento</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=400&h=300&fit=crop" alt="Letreros">
+                <h3>Letreros Corporativos</h3>
+                <p>Grabado láser de alta precisión</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=300&fit=crop" alt="Tazas">
+                <h3>Material Promocional</h3>
+                <p>Tazas, termos, y más artículos personalizados</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1611329532992-0f6d4b2ff5e2?w=400&h=300&fit=crop" alt="Lonas">
+                <h3>Señalización</h3>
+                <p>Lonas y viniles de gran formato</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2 class="section-title">Contáctanos</h2>
+        <div class="contact-container">
+            <form class="contact-form" onsubmit="return sendWhatsApp(event)">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <input type="tel" id="telefono" placeholder="Teléfono" required>
+                <textarea id="mensaje" rows="5" placeholder="Mensaje o descripción del proyecto" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Tienda -->
+    <section id="tienda">
+        <h2 class="section-title">Tienda en Línea</h2>
+        <div class="store-grid">
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&h=300&fit=crop" alt="Lanyards Personalizados">
+                <div class="store-item-info">
+                    <h3>Lanyards Personalizados</h3>
+                    <p>Portacredenciales con logo de tu empresa</p>
+                    <div class="price">Desde $50 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Lanyards Personalizados')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?w=400&h=300&fit=crop" alt="Playeras DTF">
+                <div class="store-item-info">
+                    <h3>Playeras DTF</h3>
+                    <p>Impresión de alta calidad en cualquier color</p>
+                    <div class="price">Desde $150 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Playeras DTF')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=300&fit=crop" alt="Tazas Sublimadas">
+                <div class="store-item-info">
+                    <h3>Tazas Sublimadas</h3>
+                    <p>Tazas personalizadas con tu diseño</p>
+                    <div class="price">Desde $80 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Tazas Sublimadas')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400&h=300&fit=crop" alt="Stickers">
+                <div class="store-item-info">
+                    <h3>Stickers Personalizados</h3>
+                    <p>Calcomanías en cualquier tamaño y forma</p>
+                    <div class="price">Desde $30 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Stickers Personalizados')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop" alt="Gorras">
+                <div class="store-item-info">
+                    <h3>Gorras Bordadas</h3>
+                    <p>Gorras con bordado de tu logo</p>
+                    <div class="price">Desde $120 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Gorras Bordadas')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=400&h=300&fit=crop" alt="Letreros">
+                <div class="store-item-info">
+                    <h3>Letreros Acrílico</h3>
+                    <p>Letreros grabados en láser</p>
+                    <div class="price">Desde $300 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Letreros Acrílico')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=400&h=300&fit=crop" alt="Termos">
+                <div class="store-item-info">
+                    <h3>Termos Sublimados</h3>
+                    <p>Termos térmicos personalizados</p>
+                    <div class="price">Desde $200 MXN</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Termos Sublimados')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+
+            <div class="store-item">
+                <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=300&fit=crop" alt="Tarjetas">
+                <div class="store-item-info">
+                    <h3>Tarjetas de Presentación</h3>
+                    <p>Diseño e impresión profesional</p>
+                    <div class="price">Desde $200 MXN (100 pz)</div>
+                    <button class="add-to-cart" onclick="orderWhatsApp('Tarjetas de Presentación')">Ordenar por WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61571510090932" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook: Mareli Graphics</span>
+                </a>
+                <a href="https://instagram.com/mareligraphics" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram: @mareligraphics</span>
+                </a>
+                <a href="https://wa.me/528144897281" target="_blank" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp: +52 814 489 7281</span>
+                </a>
+                <a href="mailto:contacto@mareligraphics.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email: contacto@mareligraphics.com</span>
+                </a>
+                <a href="tel:+528144897281" class="social-link">
+                    <i class="fas fa-phone"></i>
+                    <span>Teléfono: +52 814 489 7281</span>
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mareli Graphics. Todos los derechos reservados.</p>
+                <p>📍 San Nicolás de los Garza, Nuevo León</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/528144897281" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        function sendWhatsApp(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            const textoWhatsApp = `Hola, mi nombre es ${nombre}.%0A%0AEmail: ${email}%0ATeléfono: ${telefono}%0A%0AMensaje: ${mensaje}`;
+            
+            window.open(`https://wa.me/528144897281?text=${textoWhatsApp}`, '_blank');
+            
+            return false;
+        }
+
+        function orderWhatsApp(producto) {
+            const textoWhatsApp = `Hola! Me interesa ordenar: ${producto}%0A%0APor favor envíenme más información.`;
+            window.open(`https://wa.me/528144897281?text=${textoWhatsApp}`, '_blank');
+        }
+    </script>
+</body>
+</html>
